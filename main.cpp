@@ -1,6 +1,9 @@
 //INCLUDES
 #include <iostream>
 #include <string>
+
+#include "Traveller.h"
+
 using std::string;
 
 //MAIN
