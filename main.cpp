@@ -4,7 +4,7 @@
 
 #include "Traveller.h"
 #include "DesertFactory.h"
-
+#include "dialogue.h"
 using std::string;
 
 void npc_test();
@@ -13,6 +13,8 @@ void npc_test();
 int main(){
 
     npc_test();
+    wait_for_enter();
+    std::cout << "whatever\n";
     /*
     
     std::cout << "Welcome to Wayfarer!!!\n\n" << "Enter name: ";
