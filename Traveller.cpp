@@ -12,4 +12,5 @@ void Traveller::setMove(string move){
 
 bool Traveller::move(){
     //moveState->move();
+    return true;
 }

@@ -4,11 +4,10 @@
 #include <string>
 using std::string;
 
-
 class NPC{
     public:
-        string greeting();
-        string information();
+        virtual string greeting() =0;
+        virtual string information() =0;
 };
 
 #endif //NPC
