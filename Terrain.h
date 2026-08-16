@@ -7,7 +7,7 @@ using std::string;
 class Terrain {
     //traits etc
     public:
-        virtual Terrain() = default;
+        Terrain() = default;
         virtual ~Terrain() = default;
         virtual string getDescription() = 0;
         virtual bool canSwim() = 0;

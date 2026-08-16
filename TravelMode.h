@@ -6,7 +6,8 @@
 //Abstract
 //State participant
 class TravelMode {
-    virtual ~TravelMode();
+    public:
+    virtual ~TravelMode() = default;
     virtual void move(Traveller& traveller) = 0;
     virtual TravelMode getNextMode() const = 0;
 };
