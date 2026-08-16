@@ -3,11 +3,20 @@
 #include <string>
 
 #include "Traveller.h"
-
+#include "DesertFactory.h"
+#include "dialogue.h"
 using std::string;
+
+void npc_test();
 
 //MAIN
 int main(){
+
+    npc_test();
+    wait_for_enter();
+    std::cout << "whatever\n";
+    /*
+    
     std::cout << "Welcome to Wayfarer!!!\n\n" << "Enter name: ";
     string playerName;
     std::getline(std::cin, playerName);
@@ -25,4 +34,15 @@ int main(){
         // rinse and repeat or smthng
     }
     return 0;
+
+    */
+}
+
+void npc_test(){
+    BiomeFactory* fact = new DesertFactory();
+    NPC* npc = fact->buildNPC();
+
+    std::cout << npc->greeting();
+    std::cout << npc->information();
+
 }
