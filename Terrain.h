@@ -8,7 +8,7 @@ class Terrain {
     //traits etc
     public:
         virtual Terrain() = default;
-        virtual ~Terrain() = dafault;
+        virtual ~Terrain() = default;
         virtual string getDescription() = 0;
         virtual bool canSwim() = 0;
         virtual bool canRun() = 0;
