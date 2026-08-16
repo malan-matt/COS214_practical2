@@ -23,6 +23,7 @@ class Traveller {
         int setMoney(int money);
         Terrain* getTerrain() const;
         Terrain* setTerrain(Terrain* newTerrain);
+        string getName() const;
     private:
         string name;
         int money;
