@@ -1,15 +1,19 @@
 #include "Traveller.h"
 
-Traveller::Traveller(string name): name(name){}
+Traveller::Traveller(TravelMode* currentMode, int energy, int money, string name): currentMode(currentMode), energy(energy), money(money), name(name){}
 
 Traveller::~Traveller(){
-    //delete moveState;
+    delete currentMode;
 }
 
-void Traveller::setMove(string move){
+void Traveller::setMode(TravelMode* newMode){
     //IDK
+    //delete currentMode;
+    //currentMode = newMode;
 }
 
-bool Traveller::move(){
-    //moveState->move();
+void Traveller::move(){
+    if (currentMode) {
+        currentMode->move(*this);
+    }
 }
