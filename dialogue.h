@@ -1,6 +1,7 @@
 #ifndef DIALOGUE_H
 #define DIALOGUE_H
 #include "Traveller.h"
+#include <iostream>
 
 #define RESET   "\033[0m"
 #define RED     "\033[31m"
@@ -10,7 +11,7 @@
 #define MAGENTA "\033[35m"
 #define CYAN    "\033[36m"
 
-void wait_for_enter(){
+inline void wait_for_enter(){
     std::cout << BLUE << "<<press enter to continue>>" << RESET;
     std::cin.ignore();
 }
