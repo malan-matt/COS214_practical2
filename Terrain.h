@@ -10,12 +10,12 @@ class Terrain {
         Terrain() = default;
         virtual ~Terrain() = default;
         virtual string getDescription() = 0;
-        virtual bool canSwim() = 0;
-        virtual bool canRun() = 0;
-        virtual bool canFly() = 0; 
-        virtual bool canCycle() = 0;
+        bool canSwim() {return swim;}
+        bool canWalk() {return walk;}
+        bool canZipline() {return zipline;}
+        bool canCycle() {return cycle;}
     private:
-        bool swim, run, fly, cycle;
+        bool swim, walk, zipline, cycle;
 };
 
 #endif //TERRAIN_H
