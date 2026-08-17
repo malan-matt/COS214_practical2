@@ -23,7 +23,7 @@ void traveller_stats(Traveller& traveller){
 
 //You're welcome to edit this and make it more dramatic
 void death(Traveller& traveller, Terrain& terrain){
-    std::cout << RED << traveller.getName() << "'s energy has gone below zero.\n"
+    std::cout << RED << traveller.getName() << "'s energy has gone below zero or too low to continue.\n"
               << "You collapse to the ground\n"
               << "We will all be saddened by this death.\n"
               << "Game left incomplete." << RESET;

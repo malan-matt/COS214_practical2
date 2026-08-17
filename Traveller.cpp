@@ -1,10 +1,10 @@
 #include "Traveller.h"
+#include "WalkingMode.h"
 
-Traveller::Traveller(TravelMode* currentMode, Terrain* currentTerrain, int energy, int money, string name): currentMode(currentMode), currentTerrain(currentTerrain), energy(energy), money(money), name(name){}
+Traveller::Traveller(Terrain& currentTerrain, int energy, int money, string name): currentMode(new WalkingMode()), currentTerrain(&currentTerrain), energy(energy), money(money), name(name){}
 
 Traveller::~Traveller(){
     delete currentMode;
-    delete currentTerrain;
 }
 
 void Traveller::move(){
@@ -21,12 +21,8 @@ void Traveller::setMode(TravelMode* newMode){
     }
 }
 
-void Traveller::setTerrain(Terrain* newTerrain){
-    if (newTerrain)
-    {
-        delete currentTerrain;
-        currentTerrain = newTerrain;
-    }
+void Traveller::setTerrain(Terrain& newTerrain){
+    currentTerrain = &newTerrain;
 }
 
 int Traveller::getEnergy() const{
@@ -45,8 +41,8 @@ void Traveller::setMoney(int newMoney){
     money = newMoney;
 }
 
-Terrain* Traveller::getTerrain() const{
-    return currentTerrain;
+Terrain& Traveller::getTerrain() const{
+    return *currentTerrain;
 }
 
 string Traveller::getName() const{
