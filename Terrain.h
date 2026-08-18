@@ -14,7 +14,7 @@ class Terrain {
         bool canWalk() {return walk;}
         bool canZipline() {return zipline;}
         bool canCycle() {return cycle;}
-    private:
+    protected:
         bool swim, walk, zipline, cycle;
 };
 

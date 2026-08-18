@@ -2,35 +2,17 @@
 #define MAP_H
 
 #include <string>
-#include <vector>
-
-using std::vector;
 using std::string;
 
 class Map {
     public:
-        Map() = default;
-        ~Map() = default;
-        
-    private:
-};
-
-class Region : public Map {
-    public:
-        Region(string);
-        Map* getNextLocation();
-    private:
-        vector<Map*> children;
+        Map(string name) {this->name = name;}
+        virtual ~Map() = default;
+        virtual string describe() const = 0;
+        virtual void add(Map* child) { /*Returns nothing for location*/ }
+        const string& getName() const { return name; }
+    protected:
         string name;
-};
-
-
-class Location : public Map{
-
-};
-
-class LocationDecorator : public Map {
-
 };
 
 #endif //MAP_H

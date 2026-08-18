@@ -1,4 +1,4 @@
-#include "Trip.h"
+/*#include "Trip.h"
 #include "FastestRoute.h"
 
 int main() {
@@ -9,4 +9,4 @@ int main() {
     trip.chooseRoute(50, 50);  //mid
 
     return 0;
-}
+}*/
