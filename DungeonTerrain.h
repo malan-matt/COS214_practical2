@@ -1,5 +1,5 @@
-#ifndef DungTERRAIN_H
-#define DungTERRAIN_H
+#ifndef DUNGEONTERRAIN_H
+#define DUNGEONTERRAIN_H
 #include "Terrain.h"
 
 class DungeonTerrain: public Terrain {
@@ -13,4 +13,4 @@ class DungeonTerrain: public Terrain {
         string getDescription() {return "The dungeon at the end of the journey.\n";}
 };
 
-#endif //CITYTERRAIN_H
+#endif //DUNGEONTERRAIN_H

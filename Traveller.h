@@ -11,7 +11,7 @@ using std::string;
 //maintains instance of state and delegates state specific requests to curr obj
 class Traveller {
     public:
-        Traveller(Terrain& currentTerrain, int energy, int money, string name);
+        Traveller(TravelMode* startMode, Terrain& currentTerrain, int energy, int money, string name);
         ~Traveller();
         void move(); 
         void setMode(TravelMode* newMode);
