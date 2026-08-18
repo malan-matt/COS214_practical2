@@ -10,6 +10,6 @@ void CycleMode::move(Traveller& traveller) {
     std::cout << RED << "Energy -10, Money -2\n" << RESET;
     wait_for_enter();
     traveller_stats(traveller);
-    std::cout << YELLOW << "You are now cycling to your destination\n" << RESET;
+    std::cout << YELLOW << "\nYou are now cycling to your destination\n" << RESET;
     wait_for_enter();
 }

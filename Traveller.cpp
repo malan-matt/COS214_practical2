@@ -1,7 +1,7 @@
 #include "Traveller.h"
 #include "WalkingMode.h"
 
-Traveller::Traveller(Terrain& currentTerrain, int energy, int money, string name): currentMode(new WalkingMode()), currentTerrain(&currentTerrain), energy(energy), money(money), name(name){}
+Traveller::Traveller(TravelMode* startMode, Terrain& currentTerrain, int energy, int money, string name): currentMode(startMode), currentTerrain(&currentTerrain), energy(energy), money(money), name(name){}
 
 Traveller::~Traveller(){
     delete currentMode;
