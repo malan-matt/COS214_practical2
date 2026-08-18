@@ -9,6 +9,6 @@ void ZiplineMode::move(Traveller& traveller) {
     std::cout << RED << "Money -30\n" << RESET;
     traveller_stats(traveller);
     wait_for_enter();
-    std::cout << YELLOW << "You are now ziplining to your destination\n" << RESET; 
+    std::cout << YELLOW << "\nYou are now ziplining to your destination\n" << RESET; 
     wait_for_enter();
 }

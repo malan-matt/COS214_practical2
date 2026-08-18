@@ -14,7 +14,7 @@ void SwimMode::move(Traveller& traveller) {
         if (traveller.getEnergy() >= 30 || traveller.getMoney() >= 30) {
             std::cout << CYAN << "Would you like to continue swimming or transition to a different travel mode?\n";
             std::cout << " 1. Continue swimming (Cost: energy 30, money 0)\n" 
-                      << " 3. Boat (Cost: energy 0, money 30)\n" << RESET;
+                      << " 2. Boat (Cost: energy 0, money 30)\n" << RESET;
             int transition;
             if (!(std::cin >> transition)) { //noninteger inputs
                 std::cin.clear();

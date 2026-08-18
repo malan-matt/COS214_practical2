@@ -16,6 +16,8 @@
 #include "TollDecorator.h"
 #include "QuestDecorator.h"
 #include "OceanFactory.h"
+#include "WalkingMode.h"
+#include "SwimMode.h"
 
 using std::string;
 
@@ -29,7 +31,18 @@ int main(){
     BiomeFactory* factory = new CityFactory();
     Terrain* terrain= factory->buildTerrain();
     NPC* currentNPC = factory->buildNPC();
-    Traveller* traveller = new Traveller(terrain, 100, 50, "DesertExplorer");
+    TravelMode* startMode = new WalkingMode();
+    Traveller* traveller = new Traveller(startMode, *terrain, 100, 50, "DesertExplorer");
+    terrain->getDescription();
+
+    //Route strategy
+    Trip trip(new FastestRoute()); 
+    trip.chooseRoute(traveller->getEnergy(), traveller->getMoney()); 
+
+    //State strategy
+    traveller->move();
+
+    std::cout << GREEN << "You have arrived.\n" << RESET;
 
 
     std::cout << currentNPC->greeting();
@@ -77,9 +90,16 @@ int main(){
     std::cout << world->describe();
     world->clear();
 
-    //
-    // Travel STATE STRATEGY HERERE
-    //
+    //Route strategy
+    trip.chooseRoute(traveller->getEnergy(), traveller->getMoney()); 
+    
+    //State strategy
+    startMode = new SwimMode();
+    traveller->setMode(startMode);
+    traveller->move();
+
+    std::cout << GREEN << "\nYou have arrived.\n" << RESET;
+
     
     delete currentNPC;
     delete terrain;

@@ -19,7 +19,7 @@ inline void wait_for_enter(){
 inline void traveller_stats(Traveller& traveller){
     std::cout << "\nYour current stats:\n";
     std::cout << YELLOW << "Energy: " << traveller.getEnergy()
-              << "\nMoney: " << traveller.getMoney() << RESET;  
+              << "\nMoney: " << traveller.getMoney() << "\n" << RESET;  
 }
 
 //You're welcome to edit this and make it more dramatic
