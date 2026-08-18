@@ -40,9 +40,11 @@ int main(){
     trip.chooseRoute(traveller->getEnergy(), traveller->getMoney()); 
 
     //State strategy
+    traveller_stats(*traveller);
     traveller->move();
 
     std::cout << GREEN << "You have arrived.\n" << RESET;
+    wait_for_enter();
 
 
     std::cout << currentNPC->greeting();
@@ -71,27 +73,8 @@ int main(){
     factory = new OceanFactory();
     delete terrain;
     terrain = factory->buildTerrain();
+    traveller->setTerrain(*terrain);
 
-    try{
-        //
-        // ADD TRAVEL AND STATE HERE
-        //
-    } catch (...){
-
-        // Clean up everything allocated before the exception
-        world->clear();
-
-        delete currentNPC;
-        delete terrain;
-        delete factory;
-        delete world;
-        delete traveller;
-
-        return 0;
-    }
-
-
- 
     Region* ocean = new Region("Ocean");
     ocean->add(new Location("Waves", terrain->getDescription()));
     world->add(ocean);
@@ -104,31 +87,34 @@ int main(){
     world->clear();
 
     //Route strategy
+    traveller->setMoney(traveller->getMoney() + 30); 
     trip.chooseRoute(traveller->getEnergy(), traveller->getMoney()); 
     
     //State strategy
-    startMode = new SwimMode();
-    traveller->setMode(startMode);
+    traveller->setMode(new SwimMode());
+    traveller_stats(*traveller);
     traveller->move();
 
     std::cout << GREEN << "\nYou have arrived.\n" << RESET;
-
+    wait_for_enter();
 
     delete factory;
     factory = new DungeonFactory();
     delete terrain;
     terrain = factory->buildTerrain();
+    traveller->setTerrain(*terrain);
     
     obstacle = factory->buildObstacle();
-    obstacle->run();
+    obstacle->run(traveller);
 
     delete obstacle;
-    
+ 
+    // Clean up remaining allocations
+    delete traveller;
     delete currentNPC;
+    delete world;
     delete terrain;
     delete factory;
-    delete world;       
-    delete traveller;
  
     return 0;
 }

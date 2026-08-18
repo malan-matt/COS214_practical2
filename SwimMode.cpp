@@ -29,7 +29,7 @@ void SwimMode::move(Traveller& traveller) {
                         std::cout << RED << "Energy -30\n" << RESET;
                         traveller_stats(traveller);
                         wait_for_enter();
-                        std::cout << YELLOW << "You keep swimming.\n" << RESET;
+                        std::cout << YELLOW << "\nYou keep swimming.\n" << RESET;
                         wait_for_enter();
                     }
                     else{
