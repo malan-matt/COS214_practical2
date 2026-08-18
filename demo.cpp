@@ -10,6 +10,7 @@
 #include "Map.h"
 #include "Location.h"
 #include "Region.h"
+#include "DungeonFactory.h"
 #include "LocationDecorator.h"
 #include "WeatherDecorator.h"
 #include "TollDecorator.h"
