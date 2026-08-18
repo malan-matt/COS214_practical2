@@ -77,10 +77,25 @@ int main(){
     std::cout << world->describe();
     world->clear();
 
+    delete factory;
+    factory = new DungeonFactory();
+    delete terrain;
+    terrain = factory->buildTerrain();
+
+    try{
     //
-    // Travel STATE STRATEGY HERERE
+    // ADD TRAVEL AND STATE HERE
     //
-    
+    } catch (...){
+
+    }
+
+    obstacle = factory->buildObstacle();
+    obstacle->run();
+
+    delete obstacle;
+
+
     delete currentNPC;
     delete terrain;
     delete factory;
