@@ -2,7 +2,7 @@
 #include <string>
 #include <vector>
 
-// Include all necessary headers
+
 #include "Traveller.h"
 #include "Terrain.h"
 #include "DesertTerrain.h"
@@ -28,14 +28,14 @@
 
 using namespace std;
 
-// Function to run all tests
+
 void factory_tests() {
     cout << "\n========== STARTING COMPREHENSIVE FACTORY & BIOME TESTS ==========\n\n";
     int testCount = 0;
 
-    // ============================================================
-    // TEST 1: All Terrain Types
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": All Terrain Types\n";
     cout << "------------------------------------\n";
     {
@@ -72,9 +72,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 2: All NPC Types
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": All NPC Types\n";
     cout << "-------------------------------\n";
     {
@@ -99,9 +99,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 3: Desert Obstacle
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": Desert Obstacle\n";
     cout << "----------------------------------\n";
     {
@@ -121,9 +121,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 4: Ocean Obstacle
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": Ocean Obstacle\n";
     cout << "----------------------------------\n";
     {
@@ -142,9 +142,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 5: City Obstacle
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": City Obstacle\n";
     cout << "----------------------------------\n";
     {
@@ -162,7 +162,7 @@ void factory_tests() {
         obstacle.event2(&traveller);
         cout << "After event2 - Money: " << traveller.getMoney() << endl;
         
-        // Test event2 with insufficient money
+        
         Traveller poorTraveller(terrain, 100, 3, "PoorCityExplorer");
         cout << "\nRunning CityObstacle event2 (without enough money):" << endl;
         obstacle.event2(&poorTraveller);
@@ -170,9 +170,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 6: Jungle Obstacle
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": Jungle Obstacle\n";
     cout << "-----------------------------------\n";
     {
@@ -192,13 +192,13 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 7: All Biome Factories - Building NPCs and Terrains
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": All Biome Factories (NPCs & Terrains)\n";
     cout << "-----------------------------------------------------\n";
     {
-        // Desert Factory
+        
         DesertFactory desertFactory;
         NPC* desertNPC = desertFactory.buildNPC();
         Terrain* desertTerrain = desertFactory.buildTerrain();
@@ -209,7 +209,7 @@ void factory_tests() {
         delete desertTerrain;
         cout << endl;
         
-        // Ocean Factory
+        
         OceanFactory oceanFactory;
         NPC* oceanNPC = oceanFactory.buildNPC();
         Terrain* oceanTerrain = oceanFactory.buildTerrain();
@@ -220,7 +220,7 @@ void factory_tests() {
         delete oceanTerrain;
         cout << endl;
         
-        // City Factory
+        
         CityFactory cityFactory;
         NPC* cityNPC = cityFactory.buildNPC();
         Terrain* cityTerrain = cityFactory.buildTerrain();
@@ -231,7 +231,7 @@ void factory_tests() {
         delete cityTerrain;
         cout << endl;
         
-        // Jungle Factory
+        
         JungleFactory jungleFactory;
         NPC* jungleNPC = jungleFactory.buildNPC();
         Terrain* jungleTerrain = jungleFactory.buildTerrain();
@@ -243,13 +243,13 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 8: All Biome Factories - Building Obstacles
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": All Biome Factories (Obstacles)\n";
     cout << "------------------------------------------------\n";
     {
-        // Desert Factory builds Obstacle
+        
         DesertFactory* desertFact = new DesertFactory();
         Obstacle* desertObs = desertFact->buildObstacle();
         cout << "Desert Factory builds Obstacle successfully" << endl;
@@ -259,7 +259,7 @@ void factory_tests() {
         delete desertFact;
         cout << endl;
         
-        // Ocean Factory builds Obstacle
+        
         OceanFactory* oceanFact = new OceanFactory();
         Obstacle* oceanObs = oceanFact->buildObstacle();
         cout << "Ocean Factory builds Obstacle successfully" << endl;
@@ -269,7 +269,7 @@ void factory_tests() {
         delete oceanFact;
         cout << endl;
         
-        // City Factory builds Obstacle
+        
         CityFactory* cityFact = new CityFactory();
         Obstacle* cityObs = cityFact->buildObstacle();
         cout << "City Factory builds Obstacle successfully" << endl;
@@ -279,7 +279,7 @@ void factory_tests() {
         delete cityFact;
         cout << endl;
         
-        // Jungle Factory builds Obstacle
+        
         JungleFactory* jungleFact = new JungleFactory();
         Obstacle* jungleObs = jungleFact->buildObstacle();
         cout << "Jungle Factory builds Obstacle successfully" << endl;
@@ -290,9 +290,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 9: Obstacle Run Method
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": Obstacle Run Method\n";
     cout << "------------------------------------\n";
     {
@@ -309,9 +309,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 10: NPC Virtual Functions via Base Class Pointers
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": NPC Virtual Functions\n";
     cout << "----------------------------------\n";
     {
@@ -330,9 +330,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 11: Terrain Virtual Functions via Base Class Pointers
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": Terrain Virtual Functions\n";
     cout << "------------------------------------\n";
     {
@@ -353,9 +353,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 12: Memory Management with Factories (Dynamic Allocation)
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": Memory Management with Factories\n";
     cout << "------------------------------------------------\n";
     {
@@ -380,13 +380,13 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 13: Edge Cases - Low Resources in Obstacles
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": Edge Cases - Low Resources in Obstacles\n";
     cout << "------------------------------------------------------\n";
     {
-        // Desert obstacle with low energy
+        
         DesertObstacle desertObs;
         DesertTerrain desert;
         Traveller lowEnergyTraveller(desert, 5, 50, "LowEnergyExplorer");
@@ -395,7 +395,7 @@ void factory_tests() {
         cout << "After desert event - Energy: " << lowEnergyTraveller.getEnergy() 
              << ", Money: " << lowEnergyTraveller.getMoney() << endl;
         
-        // City obstacle with low money
+        
         CityObstacle cityObs;
         CityTerrain city;
         Traveller lowMoneyTraveller(city, 100, 3, "LowMoneyExplorer");
@@ -405,9 +405,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 14: Complete Flow - Desert Obstacle
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": Desert Obstacle Complete Flow\n";
     cout << "--------------------------------------------\n";
     {
@@ -428,9 +428,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 15: Complete Flow - Jungle Obstacle
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": Jungle Obstacle Complete Flow\n";
     cout << "--------------------------------------------\n";
     {
@@ -451,9 +451,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 16: Complete Flow - Ocean Obstacle
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": Ocean Obstacle Complete Flow\n";
     cout << "--------------------------------------------\n";
     {
@@ -468,9 +468,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 17: Complete Flow - City Obstacle
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": City Obstacle Complete Flow\n";
     cout << "--------------------------------------------\n";
     {
@@ -487,9 +487,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // TEST 18: Factory Polymorphism
-    // ============================================================
+    
+    
+    
     cout << "TEST " << ++testCount << ": Factory Polymorphism\n";
     cout << "------------------------------------\n";
     {
@@ -515,9 +515,9 @@ void factory_tests() {
     }
     cout << endl;
 
-    // ============================================================
-    // SUMMARY
-    // ============================================================
+    
+    
+    
     cout << "\n========== TEST SUMMARY ==========\n";
     cout << "Total tests: " << testCount << endl;
     cout << "All tests completed successfully!\n";
