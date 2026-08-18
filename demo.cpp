@@ -15,6 +15,7 @@
 #include "WeatherDecorator.h"
 #include "TollDecorator.h"
 #include "QuestDecorator.h"
+#include "OceanFactory.h"
 
 using std::string;
 
@@ -23,25 +24,21 @@ int main(){
     std::cout<< "WELCOME TO WAYFARER\n" 
         <<"Your journey will take you to a many lands\n==========================\n\n";
     wait_for_enter();
-
-    
  
 
-    BiomeFactory* cityFactory = new CityFactory();
-    CityTerrain CityTerrain;
-    Traveller* traveller = new Traveller(CityTerrain, 100, 50, "DesertExplorer");
+    BiomeFactory* factory = new CityFactory();
+    Terrain* terrain= factory->buildTerrain();
+    NPC* currentNPC = factory->buildNPC();
+    Traveller* traveller = new Traveller(terrain, 100, 50, "DesertExplorer");
 
-    NPC* cityNPC = cityFactory->buildNPC();
-    std::cout << cityNPC->greeting();
+
+    std::cout << currentNPC->greeting();
     wait_for_enter();
-    std::cout << cityNPC->information();
+    std::cout << currentNPC->information();
     wait_for_enter();
 
-    delete cityNPC;
-    delete cityFactory;
  
     Region* world = new Region("World");
- 
     Region* city = new Region("City");
     Map* decoratedCity = new TollDecorator(new QuestDecorator(city));
     world->add(decoratedCity);
@@ -53,29 +50,40 @@ int main(){
     std::cout << world->describe();
  
     world->clear();
+
+    delete factory;
+    factory = new OceanFactory();
+    delete terrain;
+    terrain = factory->buildTerrain();
+
+    try{
     //
     // ADD TRAVEL AND STATE HERE
     //
-    BiomeFactory* desertFactory = new DesertFactory();
-    Terrain* desertTerrain = desertFactory->buildTerrain();
+    } catch (...){
+
+    }
+
+
  
-    Region* desert = new Region("Desert");
-    desert->add(new Location("Terrain", desertTerrain->getDescription()));
-    world->add(desert);
+    Region* ocean = new Region("Ocean");
+    ocean->add(new Location("Waves", terrain->getDescription()));
+    world->add(ocean);
  
-    Obstacle* desertObstacle = desertFactory->buildObstacle();
-    desertObstacle->run(traveller);
-    delete desertObstacle;
+    Obstacle* obstacle = factory->buildObstacle();
+    obstacle->run(traveller);
+    delete obstacle;
  
     std::cout << world->describe();
-
-    delete desertTerrain;
-    delete desertFactory;
+    world->clear();
 
     //
     // Travel STATE STRATEGY HERERE
     //
- 
+    
+    delete currentNPC;
+    delete terrain;
+    delete factory;
     delete world;       
     delete traveller;
  
