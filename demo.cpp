@@ -43,7 +43,10 @@ int main(){
     Map* decoratedCity = new TollDecorator(new QuestDecorator(city));
     world->add(decoratedCity);
  
-    Location* buildingLoc = new Location("Building", "A small building with a notice board out front.");
+    Location* buildingLoc = new Location(
+        "Building",
+        "A small building with a notice board out front."
+    );
     Map* decoratedBuilding = new QuestboardDecorator(buildingLoc);
     world->add(decoratedBuilding);
  
@@ -57,11 +60,21 @@ int main(){
     terrain = factory->buildTerrain();
 
     try{
-    //
-    // ADD TRAVEL AND STATE HERE
-    //
+        //
+        // ADD TRAVEL AND STATE HERE
+        //
     } catch (...){
 
+        // Clean up everything allocated before the exception
+        world->clear();
+
+        delete currentNPC;
+        delete terrain;
+        delete factory;
+        delete world;
+        delete traveller;
+
+        return 0;
     }
 
 
@@ -83,11 +96,21 @@ int main(){
     terrain = factory->buildTerrain();
 
     try{
-    //
-    // ADD TRAVEL AND STATE HERE
-    //
+        //
+        // ADD TRAVEL AND STATE HERE
+        //
     } catch (...){
 
+        // Clean up everything allocated before the exception
+        world->clear();
+
+        delete currentNPC;
+        delete terrain;
+        delete factory;
+        delete world;
+        delete traveller;
+
+        return 0;
     }
 
     obstacle = factory->buildObstacle();
