@@ -3,6 +3,7 @@
 
 #include "NPC.h"
 #include "Terrain.h"
+#include "Obstacle.h"
 
 class BiomeFactory {
     public:
@@ -10,6 +11,7 @@ class BiomeFactory {
         virtual ~BiomeFactory() = default;
         virtual NPC* buildNPC() = 0;
         virtual Terrain* buildTerrain() = 0;
+        virtual Obstacle* buildObstacle() = 0;
 };
 
 #endif //BIOMEFACTORY

@@ -1,4 +1,5 @@
 //INCLUDES
+/*
 #include <iostream>
 #include <string>
 
@@ -25,7 +26,7 @@ void npc_test();
 void composite_decorator_test();
 
 //MAIN
-int main(){
+int main1(){
     factory_tests();
     strategy_test();
     composite_decorator_test();
@@ -36,6 +37,7 @@ int main(){
     } catch (...){
         exit(0);
     }
+    return 0;
 }
 
 void npc_test(){
@@ -106,3 +108,5 @@ void strategy_test() {
     trip.chooseRoute(50, 50);  //mid
 
 }
+
+*/
